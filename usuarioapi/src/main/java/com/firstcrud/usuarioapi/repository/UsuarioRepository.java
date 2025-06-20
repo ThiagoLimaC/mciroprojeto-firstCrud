@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.firstcrud.usuarioapi.model.Usuario;
+import com.firstcrud.usuarioapi.model.exception.ResourceNotFoundException;
 
 @Repository
 public class UsuarioRepository {
@@ -71,7 +72,7 @@ public class UsuarioRepository {
         Optional<Usuario> usuarioEncontrado = obterPorId(usuario.getId());
 
         if (usuarioEncontrado.isEmpty()) {
-            throw new InputMismatchException("Produto não encontrado");
+            throw new ResourceNotFoundException("Usuário não encontrado");
         }
 
         // remover o usuário antigo na lista
