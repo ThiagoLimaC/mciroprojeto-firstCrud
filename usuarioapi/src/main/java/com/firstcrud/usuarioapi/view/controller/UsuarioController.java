@@ -1,4 +1,4 @@
-package com.firstcrud.usuarioapi.controller;
+package com.firstcrud.usuarioapi.view.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,7 +36,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public List<Usuario> adicionar(@RequestBody Usuario usuario){
+    public Usuario adicionar(@RequestBody Usuario usuario){
         return usuarioService.adicionar(usuario);
     }
 
@@ -46,7 +46,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public List<Usuario> deletar(@PathVariable Integer id){
-        return usuarioService.deletar(id);
+    public void deletar(@PathVariable Integer id){
+        usuarioService.deletar(id);
     }
 }
