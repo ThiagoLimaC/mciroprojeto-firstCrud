@@ -2,10 +2,17 @@ package com.firstcrud.usuarioapi.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Usuario {
     
     //#region Atributos
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) // define a estratégia de atualização da base de dados
     private Integer id;
 
     private String nome;

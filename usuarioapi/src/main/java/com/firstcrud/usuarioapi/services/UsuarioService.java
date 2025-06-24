@@ -21,7 +21,7 @@ public class UsuarioService {
      * @return lista de usuários
      */
     public List<Usuario> obterTodos() {
-        return usuarioRepository.obterTodos();
+        return usuarioRepository.findAll();
     }
 
     /**
@@ -30,7 +30,7 @@ public class UsuarioService {
      * @return produto caso seja encontrado
      */
     public Optional<Usuario> obterPorId(Integer id){
-        return usuarioRepository.obterPorId(id);
+        return usuarioRepository.findById(id);
     }
 
     /**
@@ -40,7 +40,7 @@ public class UsuarioService {
      */
     public List<Usuario> adicionar(Usuario usuario){
 
-        return usuarioRepository.adicionar(usuario);
+        return usuarioRepository.save(usuario);
     }
 
     /**
@@ -49,7 +49,7 @@ public class UsuarioService {
      * @return lista com usuários cadastrados no sistema
      */
     public List<Usuario> deletar(Integer id){
-        return usuarioRepository.deletar(id);
+        return usuarioRepository.deleteById(id);
     }
 
     /**
@@ -61,6 +61,6 @@ public class UsuarioService {
 
         usuario.setId(id);
 
-        return usuarioRepository.atualizar(usuario);
+        return usuarioRepository.save(usuario);
     }
 }
